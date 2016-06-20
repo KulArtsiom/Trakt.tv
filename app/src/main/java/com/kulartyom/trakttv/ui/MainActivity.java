@@ -79,48 +79,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Interceptor interceptor = new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request newRequest = chain.request()
-                        .newBuilder()
-                        .addHeader(Constans.INTERCEPTOR_HEADER_USER_AGENT, Constans.INTERCEPTOR_HEADER_RETROFIT)
-                        .build();
-                return chain.proceed(newRequest);
-            }
-        };
-
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.interceptors().add(interceptor);
-        OkHttpClient client = builder.build();
-
-        Gson gson = new GsonBuilder()
-                .setExclusionStrategies(new ExclusionStrategy() {
-                    @Override
-                    public boolean shouldSkipField(FieldAttributes f) {
-                        return f.getDeclaringClass().equals(RealmObject.class);
-                    }
-
-                    @Override
-                    public boolean shouldSkipClass(Class<?> clazz) {
-                        return false;
-                    }
-                })
-                .create();
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(Constans.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(client)
-                .build();
-
-
         findViews();
         getProfileIcon();
         adapter = new SerialsAdapter(getApplicationContext());
         realmManager = new RealmManager();
         gvSerials.setAdapter(adapter);
+        retrofitSettings();
         loadData();
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -129,11 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (page != 0) {
-
-                        } else {
-                            loadData();
-                        }
+                        loadData();
                         swipeLayout.setRefreshing(false);
                     }
                 }, Constans.REFRESH_TIME_OUT);
@@ -161,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                 if (gvSerials.getAdapter().getCount() == 0)
                     return;
                 int length = visibleItemCount + firstVisibleItem;
-
                 if (length >= totalItemCount) {
                     if (Integer.valueOf(params.get(Constans.PARAMS_PAGE)) == page) {
                         page += 1;
@@ -254,6 +213,43 @@ public class MainActivity extends AppCompatActivity {
         Intent in = new Intent(MainActivity.this, AboutSerialsActivity.class);
         in.putExtras(bundle);
         startActivity(in);
+    }
+
+    private void retrofitSettings() {
+        Interceptor interceptor = new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request newRequest = chain.request()
+                        .newBuilder()
+                        .addHeader(Constans.INTERCEPTOR_HEADER_USER_AGENT, Constans.INTERCEPTOR_HEADER_RETROFIT)
+                        .build();
+                return chain.proceed(newRequest);
+            }
+        };
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.interceptors().add(interceptor);
+        OkHttpClient client = builder.build();
+
+        Gson gson = new GsonBuilder()
+                .setExclusionStrategies(new ExclusionStrategy() {
+                    @Override
+                    public boolean shouldSkipField(FieldAttributes f) {
+                        return f.getDeclaringClass().equals(RealmObject.class);
+                    }
+
+                    @Override
+                    public boolean shouldSkipClass(Class<?> clazz) {
+                        return false;
+                    }
+                })
+                .create();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Constans.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build();
     }
 
     // ===========================================================

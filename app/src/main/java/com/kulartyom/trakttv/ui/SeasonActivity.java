@@ -60,38 +60,7 @@ public class SeasonActivity extends AppCompatActivity {
         if (lvSeasons != null) {
             lvSeasons.setAdapter(seasonsAdapter);
         }
-
-        Interceptor interceptor = new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request newRequest = chain.request().newBuilder().addHeader(Constans.INTERCEPTOR_HEADER_USER_AGENT, Constans.INTERCEPTOR_HEADER_RETROFIT).build();
-                return chain.proceed(newRequest);
-            }
-        };
-
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.interceptors().add(interceptor);
-        OkHttpClient client = builder.build();
-
-        Gson gson = new GsonBuilder()
-                .setExclusionStrategies(new ExclusionStrategy() {
-                    @Override
-                    public boolean shouldSkipField(FieldAttributes f) {
-                        return f.getDeclaringClass().equals(RealmObject.class);
-                    }
-
-                    @Override
-                    public boolean shouldSkipClass(Class<?> clazz) {
-                        return false;
-                    }
-                })
-                .create();
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(Constans.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(client)
-                .build();
+        retrofitSettings();
         loadDataSeasons();
     }
 
@@ -123,5 +92,39 @@ public class SeasonActivity extends AppCompatActivity {
                 Log.e(TAG, t.getMessage());
             }
         });
+    }
+
+    private void retrofitSettings(){
+        Interceptor interceptor = new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request newRequest = chain.request().newBuilder().addHeader(Constans.INTERCEPTOR_HEADER_USER_AGENT, Constans.INTERCEPTOR_HEADER_RETROFIT).build();
+                return chain.proceed(newRequest);
+            }
+        };
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.interceptors().add(interceptor);
+        OkHttpClient client = builder.build();
+
+        Gson gson = new GsonBuilder()
+                .setExclusionStrategies(new ExclusionStrategy() {
+                    @Override
+                    public boolean shouldSkipField(FieldAttributes f) {
+                        return f.getDeclaringClass().equals(RealmObject.class);
+                    }
+
+                    @Override
+                    public boolean shouldSkipClass(Class<?> clazz) {
+                        return false;
+                    }
+                })
+                .create();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Constans.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build();
     }
 }
