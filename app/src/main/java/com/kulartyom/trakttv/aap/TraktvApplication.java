@@ -15,27 +15,15 @@ public class TraktvApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        RealmMigration migration = new RealmMigration() {
-            @Override
-            public long execute(Realm realm, long version) {
-                if (version == 0) {
-                    version++;
-                }
-                return version;
-            }
-        };
 
         RealmConfiguration config = new RealmConfiguration.Builder(getApplicationContext())
                 .name(Constans.REALM_NAME)
                 .schemaVersion(0)
+                .deleteRealmIfMigrationNeeded()
                 .setModules(new RealmModule())
-                .migration(migration)
-                .inMemory()
                 .build();
 
         Realm.setDefaultConfiguration(config);
-        Realm.migrateRealm(config);
+
     }
-
-
 }
