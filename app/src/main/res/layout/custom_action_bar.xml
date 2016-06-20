@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_profile_icon"
+        android:layout_width="@dimen/iv_pro_icon_width"
+        android:layout_height="@dimen/iv_pro_icon_width_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/padding_2dp"
+        android:layout_marginLeft="@dimen/iv_pro_icon_width_marginn_left"
+        android:layout_marginStart="@dimen/iv_pro_icon_width_margin_start"
+        android:layout_marginTop="@dimen/padding_2dp" />
+
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="@dimen/btn_profile_width"
+        android:layout_height="@dimen/btn_profile_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/btn_profile_margin_right"
+        android:background="@drawable/ic_portrait" />
+
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_ic_navigate">#bf5252</color>
+    <color name="background">#607D8B</color>
+    <color name="background_light">#37474F</color>
+    <color name="background_red">#bf5252</color>
+
+
+
+
+</resources>

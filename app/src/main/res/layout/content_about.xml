@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_title_height"
+        android:background="@color/background_light"
+        android:gravity="center|left"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_title_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/tv_title_padding"
+        android:textSize="@dimen/text_18sp" />
+
+
+    <TextView
+        android:id="@+id/tv_text_year"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_year_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_year_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/tv_year_padding"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_overview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_overview_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_overview_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_certification"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_certification_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_certification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/tv_certification_padding"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_network"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_network_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_network"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_country"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_country_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_country_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_trailer"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_trailer_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_trailer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_homepage_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_homepage_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_rating"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_rating_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_rating_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_votes"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_votes_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_votes_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_votes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_trakt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_trakt_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_trakt_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_trakt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_slug"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_slug_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_slug_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_slug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_tvdb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_tvdb_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_tvdb_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_tvdb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_imdb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_imdb_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_imdb_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_imdb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_tmdb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_tmdb_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_tmdb_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_tmdb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <TextView
+        android:id="@+id/tv_text_tvrage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tv_text_tvrage_height"
+        android:background="@color/background_light"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/padding_left_5dp"
+        android:text="@string/tv_text_tvrage_text"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_tvrage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:padding="@dimen/padding_5dp"
+        android:textSize="@dimen/text_about" />
+
+    <Button
+        android:id="@+id/btn_seasons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_seasons_height"
+        android:background="@drawable/selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/btn_seasons_text"
+        android:textAllCaps="false"
+        android:textColor="@color/background_red"
+        android:textSize="@dimen/text_about"
+        android:textStyle="bold" />
+
+</LinearLayout>
