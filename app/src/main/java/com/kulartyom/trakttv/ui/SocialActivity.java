@@ -45,6 +45,7 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
     private LoginButton loginButton;
     private Button btnNext;
     private RealmManager realmManager;
+    private LoginResult loginResult;
 
     // ===========================================================
     // Constructors
@@ -64,8 +65,16 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
         FacebookSdk.sdkInitialize(this);
         callbackManager = CallbackManager.Factory.create();
         realmManager = new RealmManager();
+        requestProfileTracker();
+        requestAccessToken();
         setContentView(R.layout.activity_social);
         findViews();
+
+        if (isNetworkConnected() && AccessToken.getCurrentAccessToken() != null) {
+            btnNext.setBackgroundResource(R.drawable.ic_navigate);
+        } else {
+            btnNext.setBackgroundResource(R.drawable.ic_navigate_red);
+        }
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -102,12 +111,12 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_next:
-                if (isNetworkConnected()) {
+                if (isNetworkConnected() && AccessToken.getCurrentAccessToken() != null) {
                     requestAccessToken();
                     requestProfileTracker();
                     graphRequest();
                 } else {
-                    Toast.makeText(getApplicationContext(), getString(R.string.internet_connection), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.login_facebook, Toast.LENGTH_LONG).show();
                 }
         }
     }
@@ -164,7 +173,6 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
                 if (AccessToken.getCurrentAccessToken() != null) {
                     btnNext.setBackgroundResource(R.drawable.ic_navigate);
                 } else {
-                    btnNext.setOnClickListener(null);
                     btnNext.setBackgroundResource(R.drawable.ic_navigate_red);
                 }
             }
@@ -179,7 +187,6 @@ public class SocialActivity extends AppCompatActivity implements View.OnClickLis
                     btnNext.setBackgroundResource(R.drawable.ic_navigate);
 
                 } else {
-                    btnNext.setOnClickListener(null);
                     btnNext.setBackgroundResource(R.drawable.ic_navigate_red);
                 }
             }
